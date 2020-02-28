@@ -1,7 +1,8 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
+import MovieSearch from "./components/MovieSearch"
+import MovieDetail from "./components/MovieDetail";
 
 function HomePage() {
   return <h1>HOME!</h1>;
@@ -21,12 +22,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         <nav>
-          <Link to="/">HOME</Link>
-          <Link to="/about">About</Link>
+          <Link to="/">HOME</Link> <br/>
+          <Link to="/about">About</Link> <br/>
+          <Link to="/search">MovieSearch </Link>
         </nav>
         <Switch>
           <Route path="/" exact={true} component={HomePage} />
           <Route path="/about" component={AboutPage} />
+          <Route path="/search" component={MovieSearch} />
+          <Route path="/moviedetails/:id" component={MovieDetail} />
         </Switch>
       </header>
     </div>
